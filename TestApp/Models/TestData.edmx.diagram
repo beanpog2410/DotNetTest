@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c317243693a6414181a07ea8a4c569ff" Name="Diagram1">
+        <EntityTypeShape EntityType="TestAppModel.answer" Width="1.5" PointX="7.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestAppModel.exam" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestAppModel.question" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestAppModel.subject" Width="1.5" PointX="2.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestAppModel.sysdiagram" Width="1.5" PointX="5.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestAppModel.user" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TestAppModel.score" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="TestAppModel.FK__answer__question__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="TestAppModel.FK__exam__subject_id__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="TestAppModel.FK__exam__users_id__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="TestAppModel.FK__question__exam_i__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="TestAppModel.FK__scores__exam_id__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="TestAppModel.FK__scores__users_id__3D5E1FD2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
