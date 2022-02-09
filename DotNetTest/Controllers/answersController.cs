@@ -10,6 +10,7 @@ using DotNetTest.Models;
 
 namespace DotNetTest.Controllers
 {
+    [Authorize(Roles = "lecturer,admin", Users = "lecturer@gmail.com,admin@gmail.com")]
     public class answersController : Controller
     {
         private MULTIPLE_CHOICE_Entities db = new MULTIPLE_CHOICE_Entities();

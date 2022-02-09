@@ -1,0 +1,42 @@
+﻿@model DotNetTest.Models.score
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>score</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.submited_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.submited_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.exam.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.exam.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user.username)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.scores }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

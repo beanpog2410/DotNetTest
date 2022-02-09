@@ -175,7 +175,9 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\questionsController.cs" />
+    <Compile Include="Controllers\scoresController.cs" />
     <Compile Include="Controllers\subjectsController.cs" />
+    <Compile Include="Controllers\usersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -309,6 +311,13 @@
     <Content Include="Views\questions\Details.cshtml" />
     <Content Include="Views\questions\Edit.cshtml" />
     <Content Include="Views\questions\Index.cshtml" />
+    <Content Include="Views\users\Create.cshtml" />
+    <Content Include="Views\users\Delete.cshtml" />
+    <Content Include="Views\users\Details.cshtml" />
+    <Content Include="Views\users\Edit.cshtml" />
+    <Content Include="Views\users\Index.cshtml" />
+    <Content Include="Views\scores\Details.cshtml" />
+    <Content Include="Views\scores\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

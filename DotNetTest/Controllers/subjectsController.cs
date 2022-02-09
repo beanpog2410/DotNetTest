@@ -7,9 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DotNetTest.Models;
+using Microsoft.AspNet.Identity;
 
 namespace DotNetTest.Controllers
 {
+    [Authorize(Roles = "lecturer,admin", Users = "lecturer@gmail.com,admin@gmail.com")]
     public class subjectsController : Controller
     {
         private MULTIPLE_CHOICE_Entities db = new MULTIPLE_CHOICE_Entities();

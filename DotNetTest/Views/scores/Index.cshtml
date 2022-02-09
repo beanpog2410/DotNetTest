@@ -1,0 +1,42 @@
+﻿@model IEnumerable<DotNetTest.Models.score>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.exam.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user.username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.scores)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.submited_date)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.exam.name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.user.username)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.scores)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.submited_date)
+    </td>
+</tr>
+}
+
+</table>
