@@ -53,10 +53,7 @@
       <EntityTypeMapping TypeName="MULTIPLE_CHOICEModel.user">
         <MappingFragment StoreEntitySet="users">
           <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="username" ColumnName="username" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="first_name" ColumnName="first_name" />
-          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="phone" ColumnName="phone" />
           <ScalarProperty Name="birthday" ColumnName="birthday" />

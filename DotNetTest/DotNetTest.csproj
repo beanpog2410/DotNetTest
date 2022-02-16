@@ -177,7 +177,7 @@
     <Compile Include="Controllers\questionsController.cs" />
     <Compile Include="Controllers\scoresController.cs" />
     <Compile Include="Controllers\subjectsController.cs" />
-    <Compile Include="Controllers\usersController.cs" />
+    <Compile Include="Controllers\userController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -185,10 +185,42 @@
     <Compile Include="Models\answer.cs">
       <DependentUpon>MultipleChoiceModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\AspNetRole.cs">
+      <DependentUpon>DataDefault.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUser.cs">
+      <DependentUpon>DataDefault.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserClaim.cs">
+      <DependentUpon>DataDefault.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AspNetUserLogin.cs">
+      <DependentUpon>DataDefault.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C__MigrationHistory.cs">
+      <DependentUpon>DataDefault.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataDefault.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataDefault.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataDefault.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataDefault.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataDefault.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataDefault.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\exam.cs">
       <DependentUpon>MultipleChoiceModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ExamInSubjectModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\InfoUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MultipleChoiceModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -229,6 +261,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\DataDefault.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataDefault.edmx</DependentUpon>
+      <LastGenOutput>DataDefault.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DataDefault.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataDefault.edmx</DependentUpon>
+      <LastGenOutput>DataDefault.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\MultipleChoiceModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MultipleChoiceModel.edmx</DependentUpon>
@@ -241,6 +283,13 @@
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\DataDefault.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DataDefault.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DataDefault.edmx.diagram">
+      <DependentUpon>DataDefault.edmx</DependentUpon>
+    </Content>
     <EntityDeploy Include="Models\MultipleChoiceModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MultipleChoiceModel.Designer.cs</LastGenOutput>
@@ -311,13 +360,10 @@
     <Content Include="Views\questions\Details.cshtml" />
     <Content Include="Views\questions\Edit.cshtml" />
     <Content Include="Views\questions\Index.cshtml" />
-    <Content Include="Views\users\Create.cshtml" />
-    <Content Include="Views\users\Delete.cshtml" />
-    <Content Include="Views\users\Details.cshtml" />
-    <Content Include="Views\users\Edit.cshtml" />
-    <Content Include="Views\users\Index.cshtml" />
     <Content Include="Views\scores\Details.cshtml" />
     <Content Include="Views\scores\Index.cshtml" />
+    <Content Include="Views\user\Index.cshtml" />
+    <Content Include="Views\user\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

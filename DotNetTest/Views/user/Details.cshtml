@@ -1,0 +1,86 @@
+﻿@model DotNetTest.Models.user
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Thông tin người dùng</h2>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.birthday)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.birthday)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.student_number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.student_number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.role_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.role_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.active)
+        </dt>
+
+        @if (@Html.DisplayFor(model => model.active).ToString() == "1")
+        {
+            <dd>hoạt động</dd>
+        }
+        else
+        {
+            <dd>Mssv đang bị khóa</dd>
+        }
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Cập nhật", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Quay về", "Index")
+</p>
+

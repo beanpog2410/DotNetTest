@@ -19,6 +19,25 @@ namespace DotNetTest.Controllers
         // GET: subjects
         public ActionResult Index()
         {
+            //var dataResult = new List<ExamInSubjectModel>();
+            //using (db)
+            //{
+            //    dataResult = (from s in db.subjects
+            //                  join e in db.exams
+            //                  on s.id equals e.subject_id
+            //                  where e.subject_id == 1
+            //                  select new ExamInSubjectModel
+            //                  {
+            //                      ID = e.id,
+            //                      NAME = e.name,
+            //                      DO_TIME = e.execution_time,
+            //                      START_TIME = e.start_time,
+            //                      END_TIME = e.expire_time,
+            //                      PASS = e.password,
+            //                      ACT = e.active,
+            //                  }).ToList();
+            //}
+            //return View(dataResult);
             return View(db.subjects.ToList());
         }
 

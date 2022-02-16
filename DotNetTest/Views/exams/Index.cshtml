@@ -39,7 +39,7 @@
             @Html.DisplayNameFor(model => model.subject.name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.user.username)
+            Người tạo
         </th>
         <th></th>
     </tr>
@@ -74,7 +74,7 @@
             @Html.DisplayFor(modelItem => item.subject.name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.user.username)
+            @Html.DisplayFor(modelItem => item.user.Email)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |

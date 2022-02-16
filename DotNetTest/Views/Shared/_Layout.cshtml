@@ -23,12 +23,17 @@
             <div class="navbar-collapse collapse">
                 @if (User.Identity.GetUserName() == "admin@gmail.com")
                 {
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Môn học", "Index", "subjects")</li>
-                    <li>@Html.ActionLink("Bài thi", "Index", "exams")</li>
-                    <li>@Html.ActionLink("Người dùng", "Index", "users")</li>
-                    <li>@Html.ActionLink("Điểm thi", "Index", "scores")</li>
-                </ul>
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Người dùng", "Index", "user")</li>
+                    </ul>
+                }
+                @if (User.Identity.GetUserName() == "admin@gmail.com" || User.Identity.GetUserName() == "lecturer@gmail.com")
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Môn học", "Index", "subjects")</li>
+                        <li>@Html.ActionLink("Bài thi", "Index", "exams")</li>
+                        <li>@Html.ActionLink("Điểm thi", "Index", "scores")</li>
+                    </ul>
                 }
                 @Html.Partial("_LoginPartial")
             </div>

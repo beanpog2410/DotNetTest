@@ -104,11 +104,11 @@
 USE MULTIPLE_CHOICE
 
 CREATE TABLE [users] (
-  [id] [int] PRIMARY KEY  NOT NULL IDENTITY(1,1),
-  [username] [varchar](45) DEFAULT '' NOT NULL,
-  [Password] [varchar](1000) DEFAULT ''   NOT NULL,
-  [first_name] [varchar](45) DEFAULT '' NULL,
-  [last_name] [varchar](45) DEFAULT '' NULL,
+  [id] [varchar](255) PRIMARY KEY  NOT NULL,
+  --[username] [varchar](45) DEFAULT '' NOT NULL,
+  --[Password] [varchar](1000) DEFAULT ''   NOT NULL,
+  [name] [varchar](45) DEFAULT '' NULL,
+  --[last_name] [varchar](45) DEFAULT '' NULL,
   [Email] [varchar](45) DEFAULT '' NULL,
   [phone] [varchar](45) DEFAULT '' NULL,
   [birthday] [datetime] DEFAULT '' NULL,
@@ -156,15 +156,15 @@ INSERT INTO [subject] (name) VALUES
 CREATE TABLE [dbo].[exam] (
   [id] [int] PRIMARY KEY NOT NULL IDENTITY(1,1),
   [name] [varchar](50)   NOT NULL,
-  [execution_time] [int] NOT NULL,
-  [start_time] [datetime] NOT NULL,
-  [expire_time] [datetime] NOT NULL,
+  [execution_time] [int] NULL,
+  [start_time] [datetime] NULL,
+  [expire_time] [datetime] NULL,
   [password] [varchar](50)  DEFAULT NULL,
   [active] [tinyint] NOT NULL,
   [created_date] [datetime] DEFAULT NULL,
   [updated_date] [datetime] DEFAULT NULL,
   [subject_id] [int] FOREIGN KEY REFERENCES dbo.subject(id),
-  [users_id] [int] FOREIGN KEY REFERENCES dbo.users(id),
+  [users_id] [varchar](255) FOREIGN KEY REFERENCES dbo.users(id),
 )   ;
 
 --
@@ -225,7 +225,7 @@ CREATE TABLE [dbo].[answer] (
 --
 
 CREATE TABLE [scores] (
-  [users_id] [int] FOREIGN KEY REFERENCES dbo.users(id),
+  [users_id] [varchar](255) FOREIGN KEY REFERENCES dbo.users(id),
   [exam_id] [int] FOREIGN KEY REFERENCES dbo.exam(id),
   [scores] [int] NOT NULL,
   [submited_date] [datetime] DEFAULT NULL

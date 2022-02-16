@@ -22,15 +22,15 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="execution_time" Type="int" Nullable="false" />
-          <Property Name="start_time" Type="datetime" Nullable="false" />
-          <Property Name="expire_time" Type="datetime" Nullable="false" />
+          <Property Name="execution_time" Type="int" />
+          <Property Name="start_time" Type="datetime" />
+          <Property Name="expire_time" Type="datetime" />
           <Property Name="password" Type="varchar" MaxLength="50" />
           <Property Name="active" Type="tinyint" Nullable="false" />
           <Property Name="created_date" Type="datetime" />
           <Property Name="updated_date" Type="datetime" />
           <Property Name="subject_id" Type="int" />
-          <Property Name="users_id" Type="int" />
+          <Property Name="users_id" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="question">
           <Key>
@@ -48,7 +48,7 @@ warning 6002: The table/view 'MULTIPLE_CHOICE.dbo.scores' does not have a primar
           <Key>
             <PropertyRef Name="scores" />
           </Key>
-          <Property Name="users_id" Type="int" />
+          <Property Name="users_id" Type="varchar" MaxLength="255" />
           <Property Name="exam_id" Type="int" />
           <Property Name="scores" Type="int" Nullable="false" />
           <Property Name="submited_date" Type="datetime" />
@@ -64,11 +64,8 @@ warning 6002: The table/view 'MULTIPLE_CHOICE.dbo.scores' does not have a primar
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="username" Type="varchar" MaxLength="45" Nullable="false" />
-          <Property Name="Password" Type="varchar" MaxLength="1000" Nullable="false" />
-          <Property Name="first_name" Type="varchar" MaxLength="45" />
-          <Property Name="last_name" Type="varchar" MaxLength="45" />
+          <Property Name="id" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="45" />
           <Property Name="Email" Type="varchar" MaxLength="45" />
           <Property Name="phone" Type="varchar" MaxLength="45" />
           <Property Name="birthday" Type="datetime" />
@@ -78,7 +75,7 @@ warning 6002: The table/view 'MULTIPLE_CHOICE.dbo.scores' does not have a primar
           <Property Name="role_name" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="active" Type="tinyint" Nullable="false" />
         </EntityType>
-        <Association Name="FK__answer__question__412EB0B6">
+        <Association Name="FK__answer__question__3E52440B">
           <End Role="question" Type="Self.question" Multiplicity="0..1" />
           <End Role="answer" Type="Self.answer" Multiplicity="*" />
           <ReferentialConstraint>
@@ -90,7 +87,7 @@ warning 6002: The table/view 'MULTIPLE_CHOICE.dbo.scores' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__exam__subject_id__36B12243">
+        <Association Name="FK__exam__subject_id__33D4B598">
           <End Role="subject" Type="Self.subject" Multiplicity="0..1" />
           <End Role="exam" Type="Self.exam" Multiplicity="*" />
           <ReferentialConstraint>
@@ -102,7 +99,7 @@ warning 6002: The table/view 'MULTIPLE_CHOICE.dbo.scores' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__exam__users_id__37A5467C">
+        <Association Name="FK__exam__users_id__34C8D9D1">
           <End Role="users" Type="Self.users" Multiplicity="0..1" />
           <End Role="exam" Type="Self.exam" Multiplicity="*" />
           <ReferentialConstraint>
@@ -114,7 +111,7 @@ warning 6002: The table/view 'MULTIPLE_CHOICE.dbo.scores' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__question__exam_i__3C69FB99">
+        <Association Name="FK__question__exam_i__398D8EEE">
           <End Role="exam" Type="Self.exam" Multiplicity="0..1" />
           <End Role="question" Type="Self.question" Multiplicity="*" />
           <ReferentialConstraint>
@@ -126,7 +123,7 @@ warning 6002: The table/view 'MULTIPLE_CHOICE.dbo.scores' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__scores__exam_id__440B1D61">
+        <Association Name="FK__scores__exam_id__412EB0B6">
           <End Role="exam" Type="Self.exam" Multiplicity="0..1" />
           <End Role="scores" Type="Self.scores" Multiplicity="*" />
           <ReferentialConstraint>
@@ -138,7 +135,7 @@ warning 6002: The table/view 'MULTIPLE_CHOICE.dbo.scores' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__scores__users_id__4316F928">
+        <Association Name="FK__scores__users_id__403A8C7D">
           <End Role="users" Type="Self.users" Multiplicity="0..1" />
           <End Role="scores" Type="Self.scores" Multiplicity="*" />
           <ReferentialConstraint>
@@ -164,27 +161,27 @@ warning 6002: The table/view 'MULTIPLE_CHOICE.dbo.scores' does not have a primar
     [scores].[submited_date] AS [submited_date]
     FROM [dbo].[scores] AS [scores]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__answer__question__412EB0B6" Association="Self.FK__answer__question__412EB0B6">
+          <AssociationSet Name="FK__answer__question__3E52440B" Association="Self.FK__answer__question__3E52440B">
             <End Role="question" EntitySet="question" />
             <End Role="answer" EntitySet="answer" />
           </AssociationSet>
-          <AssociationSet Name="FK__exam__subject_id__36B12243" Association="Self.FK__exam__subject_id__36B12243">
+          <AssociationSet Name="FK__exam__subject_id__33D4B598" Association="Self.FK__exam__subject_id__33D4B598">
             <End Role="subject" EntitySet="subject" />
             <End Role="exam" EntitySet="exam" />
           </AssociationSet>
-          <AssociationSet Name="FK__exam__users_id__37A5467C" Association="Self.FK__exam__users_id__37A5467C">
+          <AssociationSet Name="FK__exam__users_id__34C8D9D1" Association="Self.FK__exam__users_id__34C8D9D1">
             <End Role="users" EntitySet="users" />
             <End Role="exam" EntitySet="exam" />
           </AssociationSet>
-          <AssociationSet Name="FK__question__exam_i__3C69FB99" Association="Self.FK__question__exam_i__3C69FB99">
+          <AssociationSet Name="FK__question__exam_i__398D8EEE" Association="Self.FK__question__exam_i__398D8EEE">
             <End Role="exam" EntitySet="exam" />
             <End Role="question" EntitySet="question" />
           </AssociationSet>
-          <AssociationSet Name="FK__scores__exam_id__440B1D61" Association="Self.FK__scores__exam_id__440B1D61">
+          <AssociationSet Name="FK__scores__exam_id__412EB0B6" Association="Self.FK__scores__exam_id__412EB0B6">
             <End Role="exam" EntitySet="exam" />
             <End Role="scores" EntitySet="scores" />
           </AssociationSet>
-          <AssociationSet Name="FK__scores__users_id__4316F928" Association="Self.FK__scores__users_id__4316F928">
+          <AssociationSet Name="FK__scores__users_id__403A8C7D" Association="Self.FK__scores__users_id__403A8C7D">
             <End Role="users" EntitySet="users" />
             <End Role="scores" EntitySet="scores" />
           </AssociationSet>
@@ -204,7 +201,7 @@ warning 6002: The table/view 'MULTIPLE_CHOICE.dbo.scores' does not have a primar
           <Property Name="created_date" Type="DateTime" Precision="3" />
           <Property Name="updated_date" Type="DateTime" Precision="3" />
           <Property Name="question_id" Type="Int32" />
-          <NavigationProperty Name="question" Relationship="Self.FK__answer__question__412EB0B6" FromRole="answer" ToRole="question" />
+          <NavigationProperty Name="question" Relationship="Self.FK__answer__question__3E52440B" FromRole="answer" ToRole="question" />
         </EntityType>
         <EntityType Name="exam">
           <Key>
@@ -212,19 +209,19 @@ warning 6002: The table/view 'MULTIPLE_CHOICE.dbo.scores' does not have a primar
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="execution_time" Type="Int32" Nullable="false" />
-          <Property Name="start_time" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="expire_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="execution_time" Type="Int32" />
+          <Property Name="start_time" Type="DateTime" Precision="3" />
+          <Property Name="expire_time" Type="DateTime" Precision="3" />
           <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="active" Type="Byte" Nullable="false" />
           <Property Name="created_date" Type="DateTime" Precision="3" />
           <Property Name="updated_date" Type="DateTime" Precision="3" />
           <Property Name="subject_id" Type="Int32" />
-          <Property Name="users_id" Type="Int32" />
-          <NavigationProperty Name="subject" Relationship="Self.FK__exam__subject_id__36B12243" FromRole="exam" ToRole="subject" />
-          <NavigationProperty Name="user" Relationship="Self.FK__exam__users_id__37A5467C" FromRole="exam" ToRole="users" />
-          <NavigationProperty Name="questions" Relationship="Self.FK__question__exam_i__3C69FB99" FromRole="exam" ToRole="question" />
-          <NavigationProperty Name="scores" Relationship="Self.FK__scores__exam_id__440B1D61" FromRole="exam" ToRole="scores" />
+          <Property Name="users_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="subject" Relationship="Self.FK__exam__subject_id__33D4B598" FromRole="exam" ToRole="subject" />
+          <NavigationProperty Name="user" Relationship="Self.FK__exam__users_id__34C8D9D1" FromRole="exam" ToRole="users" />
+          <NavigationProperty Name="questions" Relationship="Self.FK__question__exam_i__398D8EEE" FromRole="exam" ToRole="question" />
+          <NavigationProperty Name="scores" Relationship="Self.FK__scores__exam_id__412EB0B6" FromRole="exam" ToRole="scores" />
         </EntityType>
         <EntityType Name="question">
           <Key>
@@ -235,8 +232,8 @@ warning 6002: The table/view 'MULTIPLE_CHOICE.dbo.scores' does not have a primar
           <Property Name="created_date" Type="DateTime" Precision="3" />
           <Property Name="updated_date" Type="DateTime" Precision="3" />
           <Property Name="exam_id" Type="Int32" />
-          <NavigationProperty Name="answers" Relationship="Self.FK__answer__question__412EB0B6" FromRole="question" ToRole="answer" />
-          <NavigationProperty Name="exam" Relationship="Self.FK__question__exam_i__3C69FB99" FromRole="question" ToRole="exam" />
+          <NavigationProperty Name="answers" Relationship="Self.FK__answer__question__3E52440B" FromRole="question" ToRole="answer" />
+          <NavigationProperty Name="exam" Relationship="Self.FK__question__exam_i__398D8EEE" FromRole="question" ToRole="exam" />
         </EntityType>
         <EntityType Name="subject">
           <Key>
@@ -244,17 +241,14 @@ warning 6002: The table/view 'MULTIPLE_CHOICE.dbo.scores' does not have a primar
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="exams" Relationship="Self.FK__exam__subject_id__36B12243" FromRole="subject" ToRole="exam" />
+          <NavigationProperty Name="exams" Relationship="Self.FK__exam__subject_id__33D4B598" FromRole="subject" ToRole="exam" />
         </EntityType>
         <EntityType Name="user">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="username" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="first_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="last_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="phone" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
           <Property Name="birthday" Type="DateTime" Precision="3" />
@@ -263,21 +257,21 @@ warning 6002: The table/view 'MULTIPLE_CHOICE.dbo.scores' does not have a primar
           <Property Name="avatar" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
           <Property Name="role_name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="active" Type="Byte" Nullable="false" />
-          <NavigationProperty Name="exams" Relationship="Self.FK__exam__users_id__37A5467C" FromRole="users" ToRole="exam" />
-          <NavigationProperty Name="scores" Relationship="Self.FK__scores__users_id__4316F928" FromRole="users" ToRole="scores" />
+          <NavigationProperty Name="exams" Relationship="Self.FK__exam__users_id__34C8D9D1" FromRole="users" ToRole="exam" />
+          <NavigationProperty Name="scores" Relationship="Self.FK__scores__users_id__403A8C7D" FromRole="users" ToRole="scores" />
         </EntityType>
         <EntityType Name="score">
           <Key>
             <PropertyRef Name="scores" />
           </Key>
-          <Property Name="users_id" Type="Int32" />
+          <Property Name="users_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="exam_id" Type="Int32" />
           <Property Name="scores" Type="Int32" Nullable="false" />
           <Property Name="submited_date" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="exam" Relationship="Self.FK__scores__exam_id__440B1D61" FromRole="scores" ToRole="exam" />
-          <NavigationProperty Name="user" Relationship="Self.FK__scores__users_id__4316F928" FromRole="scores" ToRole="users" />
+          <NavigationProperty Name="exam" Relationship="Self.FK__scores__exam_id__412EB0B6" FromRole="scores" ToRole="exam" />
+          <NavigationProperty Name="user" Relationship="Self.FK__scores__users_id__403A8C7D" FromRole="scores" ToRole="users" />
         </EntityType>
-        <Association Name="FK__answer__question__412EB0B6">
+        <Association Name="FK__answer__question__3E52440B">
           <End Role="question" Type="Self.question" Multiplicity="0..1" />
           <End Role="answer" Type="Self.answer" Multiplicity="*" />
           <ReferentialConstraint>
@@ -289,7 +283,7 @@ warning 6002: The table/view 'MULTIPLE_CHOICE.dbo.scores' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__exam__subject_id__36B12243">
+        <Association Name="FK__exam__subject_id__33D4B598">
           <End Role="subject" Type="Self.subject" Multiplicity="0..1" />
           <End Role="exam" Type="Self.exam" Multiplicity="*" />
           <ReferentialConstraint>
@@ -301,7 +295,7 @@ warning 6002: The table/view 'MULTIPLE_CHOICE.dbo.scores' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__exam__users_id__37A5467C">
+        <Association Name="FK__exam__users_id__34C8D9D1">
           <End Role="users" Type="Self.user" Multiplicity="0..1" />
           <End Role="exam" Type="Self.exam" Multiplicity="*" />
           <ReferentialConstraint>
@@ -313,7 +307,7 @@ warning 6002: The table/view 'MULTIPLE_CHOICE.dbo.scores' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__question__exam_i__3C69FB99">
+        <Association Name="FK__question__exam_i__398D8EEE">
           <End Role="exam" Type="Self.exam" Multiplicity="0..1" />
           <End Role="question" Type="Self.question" Multiplicity="*" />
           <ReferentialConstraint>
@@ -325,7 +319,7 @@ warning 6002: The table/view 'MULTIPLE_CHOICE.dbo.scores' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__scores__exam_id__440B1D61">
+        <Association Name="FK__scores__exam_id__412EB0B6">
           <End Role="exam" Type="Self.exam" Multiplicity="0..1" />
           <End Role="scores" Type="Self.score" Multiplicity="*" />
           <ReferentialConstraint>
@@ -337,7 +331,7 @@ warning 6002: The table/view 'MULTIPLE_CHOICE.dbo.scores' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__scores__users_id__4316F928">
+        <Association Name="FK__scores__users_id__403A8C7D">
           <End Role="users" Type="Self.user" Multiplicity="0..1" />
           <End Role="scores" Type="Self.score" Multiplicity="*" />
           <ReferentialConstraint>
@@ -356,27 +350,27 @@ warning 6002: The table/view 'MULTIPLE_CHOICE.dbo.scores' does not have a primar
           <EntitySet Name="subjects" EntityType="Self.subject" />
           <EntitySet Name="users" EntityType="Self.user" />
           <EntitySet Name="scores" EntityType="Self.score" />
-          <AssociationSet Name="FK__answer__question__412EB0B6" Association="Self.FK__answer__question__412EB0B6">
+          <AssociationSet Name="FK__answer__question__3E52440B" Association="Self.FK__answer__question__3E52440B">
             <End Role="question" EntitySet="questions" />
             <End Role="answer" EntitySet="answers" />
           </AssociationSet>
-          <AssociationSet Name="FK__exam__subject_id__36B12243" Association="Self.FK__exam__subject_id__36B12243">
+          <AssociationSet Name="FK__exam__subject_id__33D4B598" Association="Self.FK__exam__subject_id__33D4B598">
             <End Role="subject" EntitySet="subjects" />
             <End Role="exam" EntitySet="exams" />
           </AssociationSet>
-          <AssociationSet Name="FK__exam__users_id__37A5467C" Association="Self.FK__exam__users_id__37A5467C">
+          <AssociationSet Name="FK__exam__users_id__34C8D9D1" Association="Self.FK__exam__users_id__34C8D9D1">
             <End Role="users" EntitySet="users" />
             <End Role="exam" EntitySet="exams" />
           </AssociationSet>
-          <AssociationSet Name="FK__question__exam_i__3C69FB99" Association="Self.FK__question__exam_i__3C69FB99">
+          <AssociationSet Name="FK__question__exam_i__398D8EEE" Association="Self.FK__question__exam_i__398D8EEE">
             <End Role="exam" EntitySet="exams" />
             <End Role="question" EntitySet="questions" />
           </AssociationSet>
-          <AssociationSet Name="FK__scores__exam_id__440B1D61" Association="Self.FK__scores__exam_id__440B1D61">
+          <AssociationSet Name="FK__scores__exam_id__412EB0B6" Association="Self.FK__scores__exam_id__412EB0B6">
             <End Role="exam" EntitySet="exams" />
             <End Role="scores" EntitySet="scores" />
           </AssociationSet>
-          <AssociationSet Name="FK__scores__users_id__4316F928" Association="Self.FK__scores__users_id__4316F928">
+          <AssociationSet Name="FK__scores__users_id__403A8C7D" Association="Self.FK__scores__users_id__403A8C7D">
             <End Role="users" EntitySet="users" />
             <End Role="scores" EntitySet="scores" />
           </AssociationSet>
@@ -439,10 +433,7 @@ warning 6002: The table/view 'MULTIPLE_CHOICE.dbo.scores' does not have a primar
             <EntityTypeMapping TypeName="MULTIPLE_CHOICEModel.user">
               <MappingFragment StoreEntitySet="users">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="username" ColumnName="username" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="first_name" ColumnName="first_name" />
-                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="phone" ColumnName="phone" />
                 <ScalarProperty Name="birthday" ColumnName="birthday" />

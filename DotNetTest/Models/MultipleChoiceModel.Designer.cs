@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\student\code_thuc_hanh\code_ltweb\DotNetTest\DotNetTest\Models\MultipleChoiceModel.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\code_ou\DotNetTest\DotNetTest\Models\MultipleChoiceModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
