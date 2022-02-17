@@ -10,7 +10,6 @@ using DotNetTest.Models;
 
 namespace DotNetTest.Controllers
 {
-    [Authorize(Roles = "lecturer,admin", Users = "lecturer@gmail.com,admin@gmail.com")]
     public class examsController : Controller
     {
         private MULTIPLE_CHOICE_Entities db = new MULTIPLE_CHOICE_Entities();
@@ -41,7 +40,7 @@ namespace DotNetTest.Controllers
         public ActionResult Create()
         {
             ViewBag.subject_id = new SelectList(db.subjects, "id", "name");
-            ViewBag.users_id = new SelectList(db.users, "id", "username");
+            ViewBag.users_id = new SelectList(db.users, "id", "name");
             return View();
         }
 
@@ -60,7 +59,7 @@ namespace DotNetTest.Controllers
             }
 
             ViewBag.subject_id = new SelectList(db.subjects, "id", "name", exam.subject_id);
-            ViewBag.users_id = new SelectList(db.users, "id", "username", exam.users_id);
+            ViewBag.users_id = new SelectList(db.users, "id", "name", exam.users_id);
             return View(exam);
         }
 
@@ -77,7 +76,7 @@ namespace DotNetTest.Controllers
                 return HttpNotFound();
             }
             ViewBag.subject_id = new SelectList(db.subjects, "id", "name", exam.subject_id);
-            ViewBag.users_id = new SelectList(db.users, "id", "username", exam.users_id);
+            ViewBag.users_id = new SelectList(db.users, "id", "name", exam.users_id);
             return View(exam);
         }
 
@@ -95,7 +94,7 @@ namespace DotNetTest.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.subject_id = new SelectList(db.subjects, "id", "name", exam.subject_id);
-            ViewBag.users_id = new SelectList(db.users, "id", "username", exam.users_id);
+            ViewBag.users_id = new SelectList(db.users, "id", "name", exam.users_id);
             return View(exam);
         }
 

@@ -48,5 +48,37 @@ namespace DotNetTest.Controllers
             }
             return View(user);
         }
+
+        // GET: subjects/Edit/5
+        public ActionResult Edit(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            user user = db2.users.Find(id);
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+            return View(user);
+        }
+
+        // POST: subjects/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "id,name,Email,phone,birthday,gender,student_number,role_name,active")] user user)
+        {
+            if (ModelState.IsValid)
+            {
+                db2.Entry(user).State = EntityState.Modified;
+                db2.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(user);
+        }
+
     }
 }

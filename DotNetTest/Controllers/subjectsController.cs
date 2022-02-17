@@ -7,11 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DotNetTest.Models;
-using Microsoft.AspNet.Identity;
 
 namespace DotNetTest.Controllers
 {
-    [Authorize(Roles = "lecturer,admin", Users = "lecturer@gmail.com,admin@gmail.com")]
     public class subjectsController : Controller
     {
         private MULTIPLE_CHOICE_Entities db = new MULTIPLE_CHOICE_Entities();
@@ -19,25 +17,6 @@ namespace DotNetTest.Controllers
         // GET: subjects
         public ActionResult Index()
         {
-            //var dataResult = new List<ExamInSubjectModel>();
-            //using (db)
-            //{
-            //    dataResult = (from s in db.subjects
-            //                  join e in db.exams
-            //                  on s.id equals e.subject_id
-            //                  where e.subject_id == 1
-            //                  select new ExamInSubjectModel
-            //                  {
-            //                      ID = e.id,
-            //                      NAME = e.name,
-            //                      DO_TIME = e.execution_time,
-            //                      START_TIME = e.start_time,
-            //                      END_TIME = e.expire_time,
-            //                      PASS = e.password,
-            //                      ACT = e.active,
-            //                  }).ToList();
-            //}
-            //return View(dataResult);
             return View(db.subjects.ToList());
         }
 

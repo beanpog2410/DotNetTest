@@ -54,9 +54,14 @@
             @Html.DisplayNameFor(model => model.active)
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.active)
-        </dd>
+        @if (@Html.DisplayFor(model => model.active).ToString() == "1")
+        {
+            <dd>hoạt động</dd>
+        }
+        else
+        {
+            <dd>Bài thi đã đóng</dd>
+        }
 
         <dt>
             @Html.DisplayNameFor(model => model.created_date)
@@ -75,7 +80,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.subject.name)
+            Môn học
         </dt>
 
         <dd>
@@ -83,11 +88,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.user.username)
+            Người tạo
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.user.username)
+            @Html.DisplayFor(model => model.user.name)
         </dd>
 
     </dl>
